@@ -102,7 +102,7 @@ function processKey(code) {
             if (trap_echos) {
                 echo_trap.push(code);
             }
-        }
+        }    
     } else if (active_connection === 'simulated') {
         updateTermBox(String.fromCharCode(code));
     } else if (active_connection === 'websocket') {
@@ -115,7 +115,7 @@ function processKey(code) {
             action: 'msg'
         };
         client_ws_connection.send(JSON.stringify(msg_to_send));
-    }
+    } 
 }
 
 function displayInTerm(str) {
@@ -237,7 +237,7 @@ function updateTermBox(c) {
                     break;
                 case 7: // Beep
                     document.getElementById("serial_console").classList.remove("visual-beep");
-                    void document.getElementById("serial_console").offsetWidth;
+                    var ow = document.getElementById("serial_console").offsetWidth;
                     document.getElementById("serial_console").classList.add("visual-beep");
                     var sound = document.getElementById("term-beep");
                     sound.play();

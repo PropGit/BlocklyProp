@@ -45,6 +45,16 @@
             <hr>
             <ul class="latest-projects"></ul>
         </div>
+        
+        <script>
+            // Retrieve the Message of the Day content
+            $.get('<url:getCdnUrl url="/motd-feeder.txt"/>', function (data) {
+                if (data && data.length > 11) {
+                    $('#message-of-the-day').css('display', 'block');
+                    $('#message-of-the-day-text').html(data);
+                }
+            });
+        </script>
 
         <%@ include file="/WEB-INF/includes/pageparts/project-login-dialog.jsp"%>
         <script src="<url:getCdnUrl url="/latest.js"/>" ></script>
